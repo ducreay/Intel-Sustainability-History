@@ -1,0 +1,150 @@
+/* Give the header a left-to-right blue gradient and space around its content. */
+#Hero {
+  padding: 48px 20px;
+  background: linear-gradient(to right, #009dd1, #003b70);
+  color: white;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Keep the hero content centered and easy to read. */
+#Hero div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Display the Intel logo as a centered image. */
+#Hero img {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 0 auto 24px;
+}
+
+/* Set the header's h1 text size */
+#Hero h1 {
+  margin: 0 0 16px;
+  font-size: 2.5rem;
+}
+
+/* Set the header's paragraph text size */
+#Hero p {
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.25rem;
+}
+
+/* Set the height and color of the separation line */
+#Separation-line {
+  height: 10px;
+  background-color: #00c7fd;
+}
+
+/* Keep the cards in one row and let the timeline scroll horizontally. */
+#Timeline {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 600px;
+  gap: 24px;
+  padding: 40px 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 24px;
+}
+
+/* Set the font and card size for each card in the timeline */
+.timeline-entry {
+  flex: 0 0 360px;
+  font-family: "Roboto", sans-serif;
+  scroll-snap-align: start;
+}
+
+/* Align the last card to the right edge when scrolling reaches the end */
+.timeline-entry:last-child {
+  scroll-snap-align: end;
+}
+
+/* Center the year and set its color above each of the timeline cards */
+.timeline-entry > h2 {
+  margin: 0 0 16px;
+  color: #00c7fd;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* Keep the image and the white text area together as one card. */
+.timeline-card {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 15, 40, 0.2);
+}
+
+/* Show an outline when a card is in focus */
+.timeline-card:focus-visible {
+  outline: 3px solid #00c7fd;
+  outline-offset: 4px;
+}
+
+/* Set the size of images inside of the cards */
+.timeline-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Set the color and set up the transition for text inside of the cards */
+.timeline-card-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background-color: white;
+  color: #000f28;
+  opacity: 0;
+  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.3s ease;
+}
+
+/* Perform the transition when a card is in focus or hovered over */
+.timeline-card:hover .timeline-card-content,
+.timeline-card:focus .timeline-card-content {
+  max-height: 400px;
+  padding: 20px;
+  opacity: 1;
+}
+
+/* Set card header text margins */
+.timeline-card-content h3 {
+  margin: 0 0 12px;
+}
+
+/* Set card paragraph text margins (and line height) */
+.timeline-card-content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Stack the cards when there is not enough room to show two side by side. */
+@media (max-width: 791px) {
+  #Timeline {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .timeline-entry {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 420px;
+    scroll-snap-align: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-card-content {
+    transition: none;
+  }
+}

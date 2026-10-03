@@ -1,3 +1,9 @@
+/* Set the website's background to a dark blue gradient color */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000814, #001b3d);
+}
+
 /* Give the header a left-to-right blue gradient and space around its content. */
 #Hero {
   padding: 48px 20px;
@@ -52,6 +58,14 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 24px;
+}
+
+/* Set the timeline instruction text's position, font, and color */
+.timeline-instructions {
+  padding: 8px;
+  color: #007ec7;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
 }
 
 /* Set the font and card size for each card in the timeline */
@@ -143,8 +157,83 @@
   }
 }
 
+/* Disables transitions on devices with reduce motion enabled */
 @media (prefers-reduced-motion: reduce) {
   .timeline-card-content {
     transition: none;
   }
+}
+
+/* Set side borders for the 3 column content section */
+#Three-col-content {
+  padding-inline: 24px;
+}
+
+/* Style the three-column content as matching cards. */
+.content-card {
+  height: 100%;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #003b70;
+  color: white;
+}
+
+/* Add padding between the newsletter form and surrounding sections */
+.newsletter-section {
+  padding: 24px;
+}
+
+/* Format the newletter title text */
+.newsletter-title {
+  color: #00c7fd;
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/* Justify the newsletter form's text left in LTR languages */
+#newsletter-email {
+  text-align: left;
+}
+
+/* Justify the newsletter form's text right in RTL languages */
+[dir="rtl"] #newsletter-email {
+  text-align: right;
+}
+
+/* Stylize the newsletter submit button */
+.newsletter-submit {
+  border-color: #0071c5;
+  background-color: #0071c5;
+  color: white;
+}
+
+/* Darken the newsletter submit button when hovered over or focused on */
+.newsletter-submit:hover,
+.newsletter-submit:focus-visible {
+  border-color: #005a9e;
+  background-color: #005a9e;
+  color: white;
+}
+
+/* Set the footer's background, font, text alignment, and text color */
+.site-footer {
+  padding: 24px;
+  background: linear-gradient(to right, #003b70, #000f28);
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+/* Set the spacing of the footer text */
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* Set the color of the footer text */
+.site-footer a {
+  color: white;
 }
